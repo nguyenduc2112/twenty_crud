@@ -1,26 +1,23 @@
 import React, { useState } from "react";
-import { Redirect, Route, Switch, useHistory } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 
 import Login from "./Login";
 import PostManagement from "./PostManagement";
+import RestrictedRoute from "../components/RestrictedRoute";
 
 import AuthContext from "../context/authContext";
 import { isValidUser } from "../services";
 
-const RestrictRoute = ({ path, isAuth, component: Component }) => (
-  <Route
-    path={path}
-    render={() => (isAuth ? <Component /> : <Redirect to="/login" />)}
-  />
-);
-
 const Main = () => {
-  const [isAuth, setAuth] = useState(false);
+  const [authInfo, setAuthInfo] = useState({
+    isAuth: false,
+    username: "",
+  });
   const history = useHistory();
 
   const handleLogin = (username, password) => {
     if (isValidUser(username, password)) {
-      setAuth(true);
+      setAuthInfo({ isAuth: true, username });
       history.push("/post-management");
     } else alert("User not found!!");
   };
@@ -28,16 +25,22 @@ const Main = () => {
   return (
     <AuthContext.Provider
       value={{
-        isAuth: isAuth,
+        isAuth: authInfo.isAuth,
         onLogin: handleLogin,
+        username: authInfo.username,
       }}
     >
       <Switch>
         <Route path="/login" component={Login} />
-        <RestrictRoute
+        <RestrictedRoute
           path="/post-management"
           component={PostManagement}
-          isAuth={isAuth}
+          isAuth={authInfo.isAuth}
+        />
+        <RestrictedRoute
+          path="/"
+          component={PostManagement}
+          isAuth={authInfo.isAuth}
         />
       </Switch>
     </AuthContext.Provider>
