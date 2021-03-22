@@ -5,6 +5,11 @@ import { Form, Button, Input, Checkbox } from "antd";
 import authContext from "../../context/authContext";
 import "./style.scss";
 
+const layout = {
+  labelCol: { span: 6 },
+  wrapperCol: { span: 18 },
+};
+
 const Login = () => {
   const auth = useContext(authContext);
   const handleSubmit = (values) => {
@@ -15,13 +20,13 @@ const Login = () => {
 
   return (
     <div className="login-form">
-      <Form onFinish={handleSubmit}>
+      <Form onFinish={handleSubmit} {...layout}>
         <Form.Item
           label="Username"
           name="username"
           rules={[{ required: true, message: "Please input the username!!!" }]}
         >
-          <Input />
+          <Input placeholder="user1,2,3,4" />
         </Form.Item>
 
         <Form.Item
@@ -29,7 +34,7 @@ const Login = () => {
           name="password"
           rules={[{ required: true, message: "Please input the password!!!" }]}
         >
-          <Input.Password />
+          <Input.Password placeholder="12345" />
         </Form.Item>
 
         <Form.Item name="remember" valuePropName="checked">
