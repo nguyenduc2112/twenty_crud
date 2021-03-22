@@ -11,5 +11,22 @@
       border: 1px solid #40a9ff;
       border-radius: 4px;
     }
+
+    .post-list {
+      padding: 12px;
+      justify-content: center;
+
+      .post-item {
+        margin-bottom: 12px;
+      }
+    }
+
+    .ant-card {
+      margin: auto;
+    }
+
+    .ant-card-bordered {
+      border: 1px solid #40a9ff;
+    }
   }
 }
