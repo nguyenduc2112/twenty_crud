@@ -1,0 +1,12 @@
+.login-form {
+  margin: auto;
+  margin-top: 40px;
+  max-width: 600px;
+  padding: 25px;
+  border: 1px solid #40a9ff;
+  border-radius: 4px;
+
+  .ant-input {
+    max-width: 400px;
+  }
+}
