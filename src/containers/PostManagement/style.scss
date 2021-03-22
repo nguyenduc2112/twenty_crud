@@ -1,0 +1,36 @@
+.post-management--container {
+  padding: 25px;
+  .post-management--body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &-left,
+    &-right {
+      width: 45%;
+      border: 1px solid #40a9ff;
+      border-radius: 4px;
+    }
+
+    .post-list {
+      padding: 12px;
+      justify-content: center;
+
+      .post-item {
+        margin-bottom: 12px;
+      }
+    }
+
+    .ant-card {
+      margin: auto;
+    }
+
+    .ant-card-bordered {
+      border: 1px solid #40a9ff;
+    }
+
+    .post-edit {
+      padding: 12px;
+    }
+  }
+}

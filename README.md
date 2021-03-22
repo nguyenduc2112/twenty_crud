@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## The user name and password are hard-coded
+
+User name: using user1, user2, user3, user4, user5
+Password: 12345
+
 ## Available Scripts
 
 In the project directory, you can run:
