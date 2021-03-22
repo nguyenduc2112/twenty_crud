@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { Form, Button, Input, Checkbox } from "antd";
 
+import authContext from "../../context/authContext";
 import "./style.scss";
 
 const Login = () => {
+  const auth = useContext(authContext);
   const handleSubmit = (values) => {
     console.log({ values });
+    const { username, password } = values;
+    auth.onLogin(username, password);
   };
 
   return (
@@ -25,7 +29,7 @@ const Login = () => {
           name="password"
           rules={[{ required: true, message: "Please input the password!!!" }]}
         >
-          <Input />
+          <Input.Password />
         </Form.Item>
 
         <Form.Item name="remember" valuePropName="checked">

@@ -1,0 +1,15 @@
+.post-management--container {
+  padding: 25px;
+  .post-management--body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &-left,
+    &-right {
+      width: 45%;
+      border: 1px solid #40a9ff;
+      border-radius: 4px;
+    }
+  }
+}
